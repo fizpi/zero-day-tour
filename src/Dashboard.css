@@ -1,0 +1,81 @@
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f7fb;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 350px;
+}
+
+.dashboard-box h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dashboard-box p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.dashboard-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* General button style */
+.dashboard-buttons button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dashboard-buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* Logout button */
+.logout-btn {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f;
+}
+.page-container{
+  position: absolute;
+  padding-left: 220px;
+  padding-top: 30px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* padding-top: 70px; */
+  background-color: #f3f7fb;
+}
+@media (max-width: 768px) {
+  .page-container{
+    padding-left: 0;
+  }
+}

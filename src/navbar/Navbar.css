@@ -1,0 +1,127 @@
+/* Base sidebar */
+header{
+  background-color: #1e3a8a;
+  margin: 0;
+  /* height: 50px; */
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding:6px 16px;
+  gap: 16px;
+  color: white;
+  font-size: 24px;
+}
+header div{
+  width: 36px;
+  height: 36px;
+  text-align: center;
+}
+header h3{
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.navbar {
+  z-index: 800;
+  position: fixed;
+  left: 0;
+  top: 40px;
+  width: 220px;
+  height: 100vh;
+  background-color: #1e3a8a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+/* Hidden by default on mobile */
+@media (max-width: 768px) {
+  .navbar {
+    top: 0;
+    padding-top: 40px;
+    margin-top: 40px;
+    transform: translateX(-100%);
+    z-index: 800;
+  }
+
+  .navbar.open {
+    transform: translateX(0);
+  }
+
+  /* Hamburger button */
+  .navbar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1100;
+  }
+}
+
+/* Hide toggle button on desktop */
+@media (min-width: 769px) {
+  .navbar-toggle {
+    display: none;
+  }
+}
+
+/* Sidebar content */
+.navbar-title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.navbar-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.navbar-buttons button {
+  background-color: #3b82f6;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navbar-buttons button:hover {
+  background-color: #2563eb;
+}
+
+/* Logout */
+.logout-btn {
+  background-color: #ef4444;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #b91c1c;
+}
