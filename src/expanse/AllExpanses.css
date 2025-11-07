@@ -10,8 +10,22 @@
   color: #1e3a8a;
 }
 
+.headerSection{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .table-wrapper {
   overflow-x: auto;
+}
+.people{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.members-table tr{
+  position: relative;
 }
 
 .members-table {
@@ -43,9 +57,4 @@
 
 .members-table td {
   color: #334155;
-}
-.paymentHeader{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }

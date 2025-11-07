@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: #f3f7fb;
   font-family: Arial, sans-serif;
 }
@@ -77,5 +77,134 @@
 @media (max-width: 768px) {
   .page-container{
     padding-left: 0;
+  }
+}
+
+.overview-page {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.overview-page h2 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Top Summary Cards ---------- */
+.top-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  flex: 1;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+}
+
+.summary-card h3 {
+  color: #555;
+  margin-bottom: 0.4rem;
+}
+
+.summary-card p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.summary-card.highlight {
+  background: #e9f7ef;
+  border-left: 5px solid #28a745;
+}
+
+.summary-card.warning {
+  background: #fff5e6;
+  border-left: 5px solid #ff9800;
+}
+
+/* ---------- Member Details ---------- */
+.section-title {
+  color: #333;
+  margin: 1rem 0;
+}
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.member-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+}
+
+.member-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.member-header h4 {
+  margin: 0;
+  color: #222;
+}
+
+.status {
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status.paid {
+  background: #e6f8e9;
+  color: #0c8a2a;
+}
+
+.status.not-paid {
+  background: #ffecec;
+  color: #c52222;
+}
+
+.member-info .info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .overview-page {
+    margin: 1rem;
+  }
+
+  .summary-card p {
+    font-size: 1.2rem;
   }
 }

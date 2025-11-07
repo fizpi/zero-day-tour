@@ -1,4 +1,4 @@
-const BASE_URL = "https://script.google.com/macros/s/AKfycbzT0d6vLhXgIHwYadeFjIh1qllSBaqdg6h2zq3mtIqzBqTbMuBppJhy6QNqE28kK1Px8g/exec";
+const BASE_URL = "https://script.google.com/macros/s/AKfycbxRMuHYRZEucasmnhlbqQXvGyepb5Y-7kvoykFoCCxUqWQX8qYxGG_mcsHtOr3AzaO4TA/exec";
 
 export async function callLoginApi(token){
     const res = await fetch(`${BASE_URL}?type=login&token=${token}`, {
@@ -15,15 +15,29 @@ export default async function callGetApi(type){
 
 export async function callPostApi(type, body){
     const token = localStorage.getItem("token");
-    console.log(JSON.stringify(body));
-    const res = await fetch(`${BASE_URL}?type=${type}&token=${token}`, {
-        method: "POST",
-        mode: "no-cors",
+    var options = {
+        method: "POST", // Method should be uppercase "POST"
         headers: {
-            "Content-Type": "application/json;charset=utf-8",
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(body)
-    });
-    console.log(res.body);
-    return await res.json();
+    };
+
+    // console.log(JSON.stringify(body));
+    const url = `/google-script-proxy`+ BASE_URL.replaceAll("https://script.google.com", "") + `?type=${type}&token=${token}`;
+
+    try {
+        const res = await fetch(url, options);
+        if (!res.ok) {
+            const errorData = await res.text();
+            console.error('API Error:', res.status, errorData);
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        // console.log(res.body);
+        return await res.json();
+        
+    } catch (error) {
+        console.error("Fetch request failed:", error);
+        throw error;
+    }
 }

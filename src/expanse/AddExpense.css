@@ -1,0 +1,126 @@
+.add-expense {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  font-family: system-ui, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form label {
+  font-weight: 600;
+  display: block;
+  margin: 0.6rem 0 0.3rem;
+}
+
+
+input, select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: 40px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.split-tabs {
+  display: flex;
+  margin: 1rem 0;
+  border-bottom: 2px solid #eee;
+}
+
+.split-tabs button {
+  flex: 1;
+  font-size: 12px;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.split-tabs button.active {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.member-list {
+  margin-top: 1rem;
+}
+
+.member-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.member-row.selected {
+  background: #f7f9ff;
+}
+
+.member-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.member-value {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.member-value input {
+  width: 70px;
+  text-align: right;
+}
+
+.readonly-amt {
+  color: #333;
+  font-weight: 500;
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .add-expense {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .member-value input {
+    width: 60px;
+  }
+}

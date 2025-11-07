@@ -27,6 +27,7 @@ export default function Navbar({ onLogout }) {
         {/* <h3 className="navbar-title">Zero Day Tour</h3> */}
 
         <div className="navbar-buttons">
+          <button onClick={() => handleNav("/")}>Dashboard</button>
           <button onClick={() => handleNav("/members")}>View All Members</button>
           <button onClick={() => handleNav("/add-member-payment")}>Add Member Payment</button>
           <button onClick={() => handleNav("/view-member-payment")}>View Member Payment</button>

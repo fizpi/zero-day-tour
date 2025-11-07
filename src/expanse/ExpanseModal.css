@@ -1,0 +1,141 @@
+/* Overlay background */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.25s ease;
+}
+
+/* Main modal box */
+.modal-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Scroll styling */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.modal-header h2 {
+  font-size: 1.3rem;
+  margin: 0;
+  color: #222;
+  text-align: left;
+}
+
+.close-btn {
+  border: none;
+  background: none;
+  font-size: 1.6rem;
+  color: #666;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.close-btn:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Expense info */
+.expense-info p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Divider line */
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 15px 0;
+}
+
+/* Participants */
+.participants h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Responsive grid */
+.participant-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.participant-card {
+  background: #f8f9fb;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.participant-name {
+  font-weight: 500;
+  color: #222;
+}
+
+.participant-share {
+  color: #555;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 18px;
+    max-width: 95%;
+  }
+
+  .modal-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .participant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .participant-card {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(25px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

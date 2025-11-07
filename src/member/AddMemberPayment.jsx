@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./AddMemberPayment.css";
 import callGetApi, { callPostApi } from "../apiWrapper";
 
-export default function AddMemberPayment({members}) {
+export default function AddMemberPayment({members,organizer, refresh}) {
   const [form, setForm] = useState({
     whoPaid: "",
     amount: "",
@@ -23,7 +23,7 @@ export default function AddMemberPayment({members}) {
       return
     }
 
-    callPostApi("addPayment", {
+    callPostApi("addNewPayment", {
       "name": form.whoPaid,
       "amount": parseFloat(form.amount),
       "paidTo": form.paidTo
@@ -35,6 +35,7 @@ export default function AddMemberPayment({members}) {
           amount: "",
           paidTo: ""
         })
+        refresh();
       } else {
         alert(res.message);
       }
@@ -68,7 +69,7 @@ export default function AddMemberPayment({members}) {
         <label>Paid To:</label>
         <select name="paidTo" value={form.paidTo} onChange={handleChange} required>
           <option value="">Select Member</option>
-          {["Sumit", "Ezra", "Sonu"].map((m, i) => (
+          {organizer.map((m, i) => (
             <option key={i} value={m}>{m}</option>
           ))}
         </select>
