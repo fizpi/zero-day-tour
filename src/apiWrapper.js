@@ -1,5 +1,5 @@
 const BASE_URL = "https://script.google.com/macros/s/AKfycbxRMuHYRZEucasmnhlbqQXvGyepb5Y-7kvoykFoCCxUqWQX8qYxGG_mcsHtOr3AzaO4TA/exec";
-
+const PROXY_SERVER = "https://proxy-nu-six-50.vercel.app/proxy";
 export async function callLoginApi(token){
     const res = await fetch(`${BASE_URL}?type=login&token=${token}`, {
         method: "GET",
@@ -20,14 +20,15 @@ export async function callPostApi(type, body){
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify({
+            method: "POST",
+            url: `${BASE_URL}?type=${type}&token=${token}`,
+            body: body,
+        })
     };
 
-    // console.log(JSON.stringify(body));
-    const url = `/google-script-proxy`+ BASE_URL.replaceAll("https://script.google.com", "") + `?type=${type}&token=${token}`;
-
     try {
-        const res = await fetch(url, options);
+        const res = await fetch(`${PROXY_SERVER}`, options);
         if (!res.ok) {
             const errorData = await res.text();
             console.error('API Error:', res.status, errorData);

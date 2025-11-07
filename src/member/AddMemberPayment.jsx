@@ -23,11 +23,14 @@ export default function AddMemberPayment({members,organizer, refresh}) {
       return
     }
 
+    setLoading(true);
+
     callPostApi("addNewPayment", {
       "name": form.whoPaid,
       "amount": parseFloat(form.amount),
       "paidTo": form.paidTo
     }).then((res) => {
+      setLoading(false);
       if (res.status === "Success") {
         alert(res.message);
         setForm({
