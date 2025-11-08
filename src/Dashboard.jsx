@@ -142,6 +142,7 @@ const Overview = ( { overview, overviewStatus }) => {
       <h3 className="section-title">Member Details</h3>
       <div className="member-grid">
         {overview.organizer.map((m) => {
+          let transfer = -(m.total - (m.spent + m.have));
           return (
             <div key={m.name} className="member-card">
               <div className="member-header">
@@ -156,6 +157,10 @@ const Overview = ( { overview, overviewStatus }) => {
                 <div className="info-row">
                   <span>Amount Spent</span>
                   <strong>₹{m.spent.toFixed(2)}</strong>
+                </div>
+                <div className="info-row">
+                  <span>Fund Transfer</span>
+                  <strong>₹{transfer.toFixed(2)}</strong>
                 </div>
                 <div className="info-row">
                   <span>Amount Left</span>
