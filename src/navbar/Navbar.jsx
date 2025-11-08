@@ -33,6 +33,8 @@ export default function Navbar({ onLogout }) {
           <button onClick={() => handleNav("/view-member-payment")}>View Member Payment</button>
           <button onClick={() => handleNav("/add-expense")}>Add Expanse</button>
           <button onClick={() => handleNav("/view-expenses")}>View All Expanse</button>
+          <button onClick={() => handleNav("/fund-transfer")}>Fund Transfer</button>
+          <button onClick={() => handleNav("/view-fund-transfer")}>View All Fund Transfer</button>
         </div>
 
         <button className="logout-btn" onClick={onLogout}>

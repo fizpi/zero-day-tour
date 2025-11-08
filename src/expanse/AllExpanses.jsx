@@ -45,7 +45,7 @@ export default function AllExpanses(props) {
       <div className="headerSection">
         <select name="whoPaid" value={name} onChange={handleChange} required>
           <option value="">All</option>
-          {['Sumit', 'Ezra', 'Sonu'].map((m) => (
+          {props.organizer.map((m) => (
             <option key={m} value={m}>{m}</option>
           ))}
         </select>

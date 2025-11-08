@@ -8,11 +8,13 @@ import callGetApi from "./apiWrapper";
 import ViewMembersPayment from "./member/ViewMembersPayment";
 import AllExpanses from "./expanse/AllExpanses";
 import AddExpense from "./expanse/AddExpense";
+import FundTransfer from "./member/FundTransfer";
+import AllFundTransfer from "./member/AllFundTransfer";
 
 export default function Dashboard({ onLogout }) {
   const [members, setMembers] = useState([]);
   const [overview, setOverview] = useState();
-  const organizer = ["Sumit", "Ezra", "Sonu"];
+  const organizer = ["Sumit", "Ezra"];
   const [status, setStatus] = useState("Loading");
   const [overviewStatus, setOverviewStatus] = useState("Loading");
   const refresh = () => {
@@ -59,6 +61,8 @@ export default function Dashboard({ onLogout }) {
           <Route path="/view-member-payment" element={<ViewMembersPayment members={members} organizer={organizer} />} />
           <Route path="/add-expense" element={<AddExpense refresh={refresh} members={members} organizer={organizer} />} />
           <Route path="/view-expenses" element={<AllExpanses members={members} organizer={organizer} />} />
+          <Route path="/fund-transfer" element={<FundTransfer refresh={refresh} organizer={organizer} />} />
+          <Route path="/view-fund-transfer" element={<AllFundTransfer organizer={organizer} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
@@ -83,6 +87,8 @@ function DashboardContent({onLogout, status, overview, overviewStatus, organizer
               <button onClick={() => navigate("/view-member-payment")}>View Member Payment</button>
               <button onClick={() => navigate("/add-expense")}>Add Expanse</button>
               <button onClick={() => navigate("/view-expenses")}>View All Expanse</button>
+              <button onClick={() => navigate("/fund-transfer")}>Fund Transfer</button>
+              <button onClick={() => navigate("/view-fund-transfer")}>View All Fund Transfer</button>
             </div>
           }
           {
@@ -100,13 +106,6 @@ function DashboardContent({onLogout, status, overview, overviewStatus, organizer
     </div>
   )
 }
-
-const members = [
-  { name: "Sumit", totalCollection: 5000, amountSpent: 3200 },
-  { name: "Ezra", totalCollection: 4500, amountSpent: 4100 },
-  { name: "Sonu", totalCollection: 3000, amountSpent: 2800 },
-  { name: "Anjali", totalCollection: 2000, amountSpent: 2500 },
-];
 
 // // Example overall calculation
 // const totalCollection = members.reduce((a, b) => a + b.totalCollection, 0);
@@ -143,7 +142,6 @@ const Overview = ( { overview, overviewStatus }) => {
       <h3 className="section-title">Member Details</h3>
       <div className="member-grid">
         {overview.organizer.map((m) => {
-          const amountExpands = m.total - m.have;
           return (
             <div key={m.name} className="member-card">
               <div className="member-header">
@@ -157,7 +155,7 @@ const Overview = ( { overview, overviewStatus }) => {
                 </div>
                 <div className="info-row">
                   <span>Amount Spent</span>
-                  <strong>₹{amountExpands.toFixed(2)}</strong>
+                  <strong>₹{m.spent.toFixed(2)}</strong>
                 </div>
                 <div className="info-row">
                   <span>Amount Left</span>
