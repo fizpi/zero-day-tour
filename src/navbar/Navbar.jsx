@@ -18,7 +18,7 @@ export default function Navbar({ onLogout }) {
         <div  onClick={() => setOpen(!open)}>
           {open?'x': '☰'} 
         </div>
-        <h3 onClick={() => handleNav("/")}>Zero Day Tour</h3> 
+        <h3 onClick={() => handleNav("/")}>{location.pathname === "/" ? "": '<'}  Zero Day Tour</h3> 
       </header>
       
 

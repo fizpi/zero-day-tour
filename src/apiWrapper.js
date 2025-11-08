@@ -1,4 +1,4 @@
-const BASE_URL = "https://script.google.com/macros/s/AKfycbxRMuHYRZEucasmnhlbqQXvGyepb5Y-7kvoykFoCCxUqWQX8qYxGG_mcsHtOr3AzaO4TA/exec";
+const BASE_URL = "https://script.google.com/macros/s/AKfycbyXBukDWt4xH0YQ0ad1dGRYAN25DIvsrM7Zo8XwbTr2uDQBQfYQj_iYiLA7W5Bw7Zkl6w/exec";
 const PROXY_SERVER = "https://proxy-nu-six-50.vercel.app/proxy";
 export async function callLoginApi(token){
     const res = await fetch(`${BASE_URL}?type=login&token=${token}`, {

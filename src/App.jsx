@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LoginPage from "./login/LoginPage";
 import Dashboard from "./Dashboard";
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter, useLocation} from "react-router-dom";
 import "./App.css";
 
 export default function App() {
@@ -28,9 +28,18 @@ export default function App() {
 
   return token ? (
     <BrowserRouter>
+      <ScrollToTop />
       <Dashboard onLogout={handleLogout} />
     </BrowserRouter>
   ) : (
     <LoginPage setUser={setUser} />
   );
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+  return null;
 }
