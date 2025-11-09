@@ -67,7 +67,7 @@
   position: absolute;
   padding-left: 220px;
   padding-top: 30px;
-  height: 100vh;
+  min-height: 100vh;
   top: 0;
   left: 0;
   right: 0;

@@ -139,7 +139,7 @@ const Overview = ( { overview, overviewStatus }) => {
       </div>
 
       {/* --- MEMBER DETAILS --- */}
-      <h3 className="section-title">Member Details</h3>
+      <h3 className="section-title">Organizer Summary</h3>
       <div className="member-grid">
         {overview.organizer.map((m) => {
           let transfer = -(m.total - (m.spent + m.have));
