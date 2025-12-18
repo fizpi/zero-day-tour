@@ -49,7 +49,7 @@ export default function AllExpanses(props) {
             <option key={m} value={m}>{m}</option>
           ))}
         </select>
-        <p>Total Expanse: ₹<b>{totalExpanded}</b></p>
+        <p>Total Expanse: ₹<b>{totalExpanded.toFixed(2)}</b></p>
       </div>
       <div className="table-wrapper">
         <table className="members-table">
@@ -96,6 +96,11 @@ export default function AllExpanses(props) {
         onClose={() => setIsModalOpen(false)}
         title="User Details"
         data={modalData}/>
+
+      <div className="memberTotalCollection">
+          <h5>Total Expanded</h5>
+          <h4>₹<b>{totalExpanded.toFixed(2)}</b></h4>
+      </div>
     </div>
   );
 }

@@ -87,6 +87,10 @@ export default function ViewMembersPayment({members}) {
           
         </table>
       </div>
+      <div className="memberTotalCollection">
+          <h5>Total Collections</h5>
+          <h4>₹<b>{totalPayments}</b></h4>
+      </div>
     </div>
   );
 }

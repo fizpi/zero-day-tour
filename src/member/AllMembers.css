@@ -3,6 +3,7 @@
   background: #f8fafc;
   min-height: 100vh;
   font-family: Arial, sans-serif;
+  position: relative;
 }
 
 .members-container h2 {
@@ -21,6 +22,7 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px;
 }
 
 .members-table th,
@@ -48,4 +50,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.memberTotalCollection{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background-color: #4774f0;
+  display: flex;
+  color: white;
+  align-items: center;
+}
+.memberTotalCollection > *{
+  flex: 1;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
