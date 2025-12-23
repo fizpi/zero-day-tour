@@ -10,6 +10,18 @@
   margin-bottom: 20px;
   color: #1e3a8a;
 }
+.paymentTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px
+}
+.paymentTabs button{
+  background-color: white;
+  border: 1px solid grey;
+}
+.paymentTabs .activeTab{
+  background-color: skyblue;
+}
 
 .table-wrapper {
   overflow-x: auto;
