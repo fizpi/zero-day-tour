@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center">
+
+  <h2>Selfie Camera</h2>
+
+  <video id="video" autoplay playsinline width="300"></video>
+  <br><br>
+  <button onclick="takePhoto()">Capture</button>
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <script>
+    const video = document.getElementById('video');
+
+    navigator.mediaDevices.getUserMedia({
+      video: { facingMode: "user" } // 👈 front camera
+    })
+    .then(stream => {
+      video.srcObject = stream;
+    });
+
+    function takePhoto() {
+      const canvas = document.getElementById('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0);
+
+      const base64 = canvas.toDataURL("image/jpeg", 0.7);
+      const encoded = encodeURIComponent(base64);
+
+      window.location.href =
+        `shortcuts://run-shortcut?name=ReceivePhoto&input=text&text=${encoded}`;
+    }
+  </script>
+
+</body>
+</html>
